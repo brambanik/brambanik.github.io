@@ -4,3 +4,63 @@
     background: green;
     color: black;
 }
+
+.navbar {
+    float: left;
+    font-size: 16px;
+    color: lightgreen;
+    background-color:antiquewhite;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: 0;
+}
+
+.navbar a {
+    float:left;
+    font-size: 16px;
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration:none;
+    background-color: lightgreen;
+}
+
+.projectsDropdown{
+    float: left;
+    overflow:hidden;
+    
+}
+
+.projectsDropdown .dropbtn {
+  float:left;
+  font-size: 16px;
+  border: none;
+  outline: none;
+  color: black;;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit; /* Important for vertical align on mobile phones */
+  margin: 0; /* Important for vertical align on mobile phones */
+}
+
+.dropdown-content {
+    display:none;
+    position: absolute;
+    background-color:antiquewhite;
+    min-width:160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    float: none;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display:block;
+    text-align: left;
+}
+
+.projectsDropdown:hover .dropdown-content {
+    display: block;
+}
