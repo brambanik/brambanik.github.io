@@ -6,12 +6,9 @@
 }
 
 .navbar {
-    float: left;
-    font-size: 16px;
-    color: lightgreen;
+    overflow:hidden;
     background-color:antiquewhite;
     text-align: center;
-    padding: 14px 16px;
     text-decoration: 0;
 }
 
@@ -22,7 +19,6 @@
     text-align: center;
     padding: 14px 16px;
     text-decoration:none;
-    background-color: lightgreen;
 }
 
 .projectsDropdown{
@@ -41,6 +37,10 @@
   background-color: inherit;
   font-family: inherit; /* Important for vertical align on mobile phones */
   margin: 0; /* Important for vertical align on mobile phones */
+}
+
+.navbar a:hover, .projectsDropdown:hover .dropbtn {
+    background-color: darkgreen;
 }
 
 .dropdown-content {
@@ -64,3 +64,4 @@
 .projectsDropdown:hover .dropdown-content {
     display: block;
 }
+
