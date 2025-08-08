@@ -8,6 +8,7 @@
 }
 
 .navbar {
+    position: relative;
     overflow:visible;
     background-color:antiquewhite;
     text-align: center;
@@ -39,7 +40,6 @@
 }
 
 .projectsDropdown .dropbtn {
-  border: 2px solid blue;
   font-size: 16px;
   border: none;
   outline: none;
@@ -56,18 +56,17 @@
 
 .dropdown-content {
     display:none;
-    position: absolute;
+    position: relative;
     top: 100%;
     left:0;
     background-color:antiquewhite;
     min-width:160px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    border: 2px solid pink;
     z-index: 999;
 }
 
 .dropdown-content a {
-    float: none;
+    float: left;
     color: black;
     padding: 8px 8px;
     text-decoration: none;
