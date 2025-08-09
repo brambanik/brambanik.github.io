@@ -1,6 +1,6 @@
 
 body{
-    transition: ease-in-out 1s;
+    transition: ease-in-out 0.7s;
 }
 
 body:active{
@@ -54,14 +54,14 @@ body:active{
     border-radius:0.5em
 }
 .name h1 {
-    font-size: 4em;
+    font-size: clamp(1.5em, 5vw, 4em);
     /* position:absolute;
     top:100%; */
     margin:0;
 }
 
 .name h2{
-    font-size:2em;
+    font-size:clamp(1em, 5vw, 2em);
     /* position:relative;
     top:1em; */
     margin:0;
