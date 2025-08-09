@@ -12,6 +12,16 @@
     </style>
 </head>
 
-<div class="header">
-    <h1>Under Construction!</h1>
-</div>
+
+<body style = "margin:0"> 
+    <div id="header"></div>
+    <article>
+        UNDER CONSTRUCTION!
+    </article>
+
+    <script>
+        fetch("/header.html")
+            .then(res => res.text())
+            .then(data => document.getElementById("header").innerHTML = data);
+    </script>
+</body>

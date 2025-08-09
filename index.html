@@ -12,30 +12,17 @@
     </style>
 </head>
 
-<body style = "margin:0">  
-<!-- <h1>Bram's portfolio and website!</h1>
-<p>This website will include my resume and projects!</p> -->
+<body style = "margin:0"> 
+    <div id="header"></div>
+    <article>
+        Hello!
+    </article>
 
-<div class = "header">
-    <div class = "name">
-    <h1>Bram Banik</h1>
-    <h2>UBC Engineering Physics<h2>
-    </div>
-</div>
-<div class = "navbar">
-<a href = "#AboutMe">About Me</a>
-<a href = "#Resume">Resume</a>
-<div class="projectsDropdown">
-    <button class="dropbtn">Projects
-      <i class="fa fa-caret-down"></i>
-    </button>
-    <div class="dropdown-content">
-      <a href="Sub-pages/gasTank.html">Carbon Fibre Gas Tank</a>
-      <a href="Sub-pages/robotSummer.html">Big Dawg Robot</a>
-      <a href="Sub-pages/personalProjects.html">Personal Projects</a>
-    </div>
-</div>
-<a href = "https://www.github.com/brambanik">GitHub</a>
-</div>
+    <script>
+        fetch("header.html")
+            .then(res => res.text())
+            .then(data => document.getElementById("header").innerHTML = data);
+    </script>
 </body>
+
 </html>
