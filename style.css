@@ -17,6 +17,7 @@ body:active{
     background-position:center; 
     color: black;
     z-index:0;
+    overflow:hidden;
 }
 
 .header::before{
