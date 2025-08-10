@@ -12,7 +12,7 @@ body:active{
     position:relative;
     padding: 50px;
     text-align: left;
-    background-image:url('backgroundtest.jpg');
+    background-image:url('/media/backgroundtest.jpg');
     background-size:cover;  
     background-position:center; 
     color: black;
