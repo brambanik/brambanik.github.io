@@ -17,8 +17,18 @@ article {
     border-radius:1em;
 }
 
+article h1 {
+    font-size:2em;
+    margin-top:0.5em;
+    margin-bottom: 0em;
+}
+article h2 {
+    font-size:1em;
+    margin-top:0.2em;
+}
 .video {
     padding: 1em;
     float:right;
     position:absolute;
 }   
+
