@@ -1,12 +1,6 @@
-
-body{
-    transition: ease-in-out 0.7s;
+body {
+    font-family: 'Roboto', sans-serif;
 }
-
-body:active{
-    filter:blur(20px)
-}
-
 .header {
     height:150px;
     position:relative;
