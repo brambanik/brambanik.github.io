@@ -1,0 +1,24 @@
+article {
+    margin: 0  auto;
+    text-align:left;
+    max-width:600px;
+}
+
+.main_image {
+    text-align:center;
+    padding-top:2em;
+}
+
+.main_image img{
+    display:block;
+    width:100%;
+    height:auto;
+    background-color: #fff0fe;
+    border-radius:1em;
+}
+
+.video {
+    padding: 1em;
+    float:right;
+    position:absolute;
+}   
