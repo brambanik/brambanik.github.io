@@ -26,9 +26,42 @@ article h2 {
     font-size:1em;
     margin-top:0.2em;
 }
+
+article p {
+    font-weight:lighter;
+}
+
+article h4 {
+    margin: 0.4em auto;
+    font-weight:lighter;
+    font-size:1em;
+}
+
+.hbridge_schematic {
+   text-align:center;
+}
+
+.hbridge_schematic img {
+    display:block;
+    width: 100%;
+    height:auto;
+}
+
+.pcb_images {
+    text-align:center;
+}
+
+.pcb_images img {
+    display:block;
+    width:100%;
+    float:left;
+}
+
+
+
 .video {
     padding: 1em;
     float:right;
-    position:absolute;
+
 }   
 

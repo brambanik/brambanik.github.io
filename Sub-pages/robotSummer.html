@@ -39,6 +39,27 @@
             project was figuring out the circuit to drive the motors, which introduced my long debugging battle with one of the most infamous circuits: the H-Bridge.
         </p>
         <h3>H(ate)-Bridges: My Mortal Enemy</h3>
+        <p>One of the most important aspects of an autonomous robot is the driving system. Without it, the robot can't really
+            do anything of practical use. While it's possible that you could wire up a MOSFET with a PWM to the gate and change the speed
+            of a motor, this only allows unidirectional rotation unless you physically flip the voltage leads. That's where the H-Bridge comes in:
+            it allows you to spin a motor in both directions through PWM. 
+        </p>
+        <div class = "hbridge_schematic">
+            <img src = "/media/hbridge_schematic.png" alt = "H-Bridge Schematic">
+            <h4>Fig. 1: H-Bridge Schematic</h4>
+        </div>
+        <p>This was my first real foray into circuit design and using software like KiCad. The circuit shown here was designed by one of our instructors,
+            which I drew up in KiCad. To make our robot cleaner and easier to debug, we decided to order PCBs, which meant I had to design 
+            custom boards for all of our circuits. Shown below is the PCB design we ended up with, after a couple of revisions. One of the key aspects of this design
+            is the spike-filtering capacitors and larger traces going to the motors. These are both to ensure smooth operation of the H-Bridge and 
+            to avoid any possible blown wires.
+        </p>
+        <div class = "pcb_images">
+            <img src = "/media/pcb_schematic.png" alt = "H-Bridge PCB">
+            <h4>Fig. 2: H-Bridge PCB Schematic</h4>
+            <img src = "/media/pcb_model.png" alt = "H-Bridge Model">
+            <h4>Fig. 3: H-Bridge PCB Model</h4>
+        </div>
         <div class = "video">
             <video height = "480" autoplay loop muted>
                 <source src="/media/IMG_1543.mp4" type="video/mp4"/>
