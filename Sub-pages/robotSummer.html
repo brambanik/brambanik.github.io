@@ -60,8 +60,29 @@
             <img src = "/media/pcb_model.png" alt = "H-Bridge Model">
             <h4>Fig. 3: H-Bridge PCB Model</h4>
         </div>
+        <p>So, I soldered up the H-Bridge and tested it, and it worked on the first try! Is what I would have said if I hadn't faced multiple weeks of debugging and redesign.
+            As it stood, only the top H-Bridge worked on my dual-H-Bridge PCB, and even then it was finicky. I would encounter shoot-through, noise, and temporary operation until 
+            it would randomly fail. This obviously made testing other parts of our robot incredibly difficult. I will spare you the 2+ weeks of debugging multiple hours a day, but 
+            I assure you I would check for shorts in my soldering, ensure inputs were properly connected, etc...
+            My best guess after many painful hours would be some sort of design flaw in the PCB itself - although the schematic was correct, there are portions
+            of the ground plane and +12V plane that are connected by only thin vias. While on the surface this shouldn't matter too much (they are electrically connected, after all), I believe it may have 
+            some significant implications.
+        </p>
+        <p>
+            I think this is a good time to mention that this dual H-Bridge design is somewhat out of spec. Rather than using two PWM signals, it uses a single PWM and a direction pin at logic HIGH or LOW.
+            It abuses the built-in timer pins on our gate driver, the LT1161, by triggering the over-current detector and telling the gate driver to turn off one half of the bridge.
+            These timer pins are linked to the sense pins, which trigger a shut-off if the sense pin drops 65mV below the positive voltage supply. The fact that the +12V plane is occasionally
+            connected by what is effectively a wire definitely leaves an avenue for voltage differences across the board's planes. However, I can't be sure. Due to this inconsistent behavior,
+            I ended up scrapping this design and switching to a simpler, more traditional dual-PWM input H-Bridge design, shown below. Lo and behold, much to my relief, these generally worked
+            right after soldering, albeit they do not have the professional luster that comes with manufactured PCBs.
+            
+        </p>
+        <div class = "new_hbridge">
+            <img src = "/media/new_bridge.jpg" alt = "New Dual-PWM H-Bridge">
+        </div>
+        <h4>Fig. 4: Final H-Bridge Board</h4>
         <div class = "video">
-            <video height = "480" autoplay loop muted>
+            <video height = "480" playsinline autoplay loop muted>
                 <source src="/media/IMG_1543.mp4" type="video/mp4"/>
             </video>
         </div>

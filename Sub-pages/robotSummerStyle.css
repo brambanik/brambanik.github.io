@@ -1,6 +1,7 @@
 article {
     margin: 0  auto;
     text-align:left;
+    width: 100%;
     max-width:600px;
 }
 
@@ -32,6 +33,7 @@ article p {
 }
 
 article h4 {
+    text-align:center;
     margin: 0.4em auto;
     font-weight:lighter;
     font-size:1em;
@@ -57,11 +59,26 @@ article h4 {
     float:left;
 }
 
+.new_hbridge {
+    text-align:center;
+}
+
+.new_hbridge img {
+    display:block;
+    width:100%;
+    height:auto;
+}
 
 
 .video {
-    padding: 1em;
-    float:right;
+    display:block;
+    margin: 0 auto;
+    border: 0.4em solid pink;
+    line-height:0;
+    width:fit-content
+}
 
-}   
-
+.video video {
+    display:block;
+    margin:0;
+}
