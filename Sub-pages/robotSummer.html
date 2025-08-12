@@ -81,7 +81,7 @@
             <img src = "/media/new_bridge.jpg" alt = "New Dual-PWM H-Bridge">
         </div>
         <h4>Fig. 4: Final H-Bridge Board</h4>
-        <h3>ESP32, Raspberry Pi, and freeRTOS</h3>
+        <h3>Giving the Robot Eyes</h3>
         <div class = "esp32_image">
           <img src = "/media/esp32.png" alt = "ESP32" class="esp32_image">
           <h5>ESP32</h5>
@@ -100,11 +100,141 @@
             we used the Serial TX and RX ports, specifically Serial Port 0. If you've worked with ESP32s before, you might recognize an obvious problem with this: uploading code 
             utilizes this port. Our simple solution was to disconnect the Pi each time we uploaded code - annoying, yet effective.
         </p>
+        <p>
+            Training the computer vision model proved to not be the arduous task we had imagined. One of my teammates handled the majority of the CV setup, with some teamwork along the 
+            way to troubleshoot ESP32 communication problems. The longest part was gathering data: we ended up with over 4,000 images of stuffed pets 
+            with different backgrounds, lightings, and orientations. The end results, after training a custom YOLO CV model, are shown below. 
+        </p>
+
+        <div>
+            <h4>Fig. 5: Computer Vision Detection</h4>
+        </div>
+        <p>
+            Due to hardware limitations on the Raspberry Pi 5, we were only able to reach about 5 FPS for detection, but this 
+            was more than enough given the speed of our robot (~0.3 meters per second). While an AI Hat like one of the Hailo models 
+            would have supercharged our performance, that would put us way above the set $200 budget for competition.
+        </p>
+        <h3>Control System: Foray into freeRTOS</h3>
+        <p>With detection out of the way, we had to start actually getting the robot to function. The most obvious way to autonomously control the robot 
+            would be through a "superloop." As the name suggests, this consists of one large loop() function that would run all of the robot's tasks: driving, detection,
+            pickup, etc... However, this has some not-so-obvious drawbacks. One of the primary functions of a robot is tape-following, which uses a PID (proportional-integral-derivative) loop to 
+            correct itself onto a line. This requires a low-latency response from detecting the line's position relative to the robot and actuating the motors accordingly. Let's say, for accurate line
+            following, you need at most a 10ms delay between each line check. In a superloop, you now need to guarantee that all of the other robot functions can occur within 10ms! 
+            If you happen to have a detection algorithm that runs slowly, you then risk sending your robot off the track. This usually means a failed run. 
+        </p>
+        <p> So how do we avoid this? Well, we could hyper-optimize our code with flags and checking time stamps to ensure a fast response time, but that is a lot of work. Luckily, there is 
+            another way that simplifies this process: freeRTOS. This is a built-in library to the ESP32 that allows you to simulate parallelism through time-stitching functions. The ESP32 only 
+            has one core, so it's necessary to use time-stitching rather than running multiple threads. It also introduced a new structure to our code known as tasks. Essentially, we create 
+            tasks that support key functions of the robot, which then can communicate with each other and run concurrently. For example, here is what a driving task may look like:
+        </p>
+        <div class = "code_block">
+<pre><code>void drive_task(void *parameters)  {
+
+        ulTaskNotifyTake(pdTRUE, portMAX_DELAY);
+    
+    for (;;) {
+        robot->drivePID(speed);
+        if (run && millis() - startTime > driveBackTime) {
+            vTaskDelete(NULL);
+        }
+        vTaskDelay(pdMS_TO_TICKS(2));
+    }
+} </code></pre>
+        </div>
+
+        <p>
+            This little snippet has a couple important lines of code. The <code>ulTaskNotifyTake</code> essentially tells the task to wait until it has been 
+            notified to start elsewhere. After the task has begun, it starts an unending loop that tells the robot to drive with PID control. In a superloop, this would be problematic  
+            as no other code could run during this for loop. However, freeRTOS automatically partitions CPU time and allows other tasks to run concurrently! 
+            Of course, these tasks also need to be intialized in the setup() function, and follow the following format:
+        </p>
+
+        <div class = "code_block">
+        <pre><code>xTaskCreate(
+drive_task,   // function to be run
+"Driving",    // description of task
+4096,         // bytes allocated to this 
+NULL,         // parameters, dependent on function
+1,            // priority
+&drive_handle // task handle
+);  </code></pre>
+        </div>
+        <p>
+            Another key component of tasks are their priority and the task handle. The priority indicates to the CPU how important the task is - a lower 
+            priority task will not run if a higher priority task is already scheduled. This is helpful for mission-critical tasks like preventing the robot 
+            from falling of a ledge. The task handle is how you communicate between tasks. Remember the notification system mentioned earlier? The task handles 
+            allow you to send notifications to specific tasks.
+        </p>
+        <p>
+            The final thing I'd like to touch on is how we structured our codebase. If you visit our <a href = "https://github.com/justinqian1/enph253_team8_software">codebase on GitHub</a>, 
+            you'll notice that each hardware component has its own object. This was done to decrease clutter in our main function (although there is still a lot of commented code there). 
+            Furthermore, the claw and the driving wheels have their own classes as well, which take pointers to our hardware objects as inputs. This 
+            allows for more elegant coding. Check out the difference between these two snippets:
+        </p>
+        <div class = "code_block">
+        <pre><code>loop() {
+    last_distance=distance;
+    distance = distToTape();
+    
+    if(last_distance != distance) {
+        q=m;
+        m=1;
+    }
+
+    adc2_get_raw(ADC2_CHANNEL_7, ADC_WIDTH_10Bit, &kp); 
+    adc2_get_raw(ADC2_CHANNEL_6, ADC_WIDTH_10Bit, &kd);
+    p=kp*distance;
+    d=(int) ((float)kd*(float)(distance - last_distance)/(float)(q+m));
+    //i+=ki*distance;
+    ctrl=(int)(p+d); 
+    m++; 
+    
+    //digitalWrite(dirOut1, dir1);
+    //digitalWrite(dirOut2, dir2);
+    leftSpeed = max(speed-ctrl,minSpeed);
+    leftSpeed = min(leftSpeed,maxSpeed);
+    rightSpeed = max(speed+ctrl,minSpeed);
+    rightSpeed = min(rightSpeed,maxSpeed);
+    ledcWrite(leftPwmChannel,leftSpeed);
+    ledcWrite(rightPwmChannel,rightSpeed);
+
+    leftVal = adc1_get_raw(ADC1_CHANNEL_4);
+    rightVal = adc1_get_raw(ADC1_CHANNEL_5);
+
+    delay(2); 
+}   </code></pre>
+        </div>
+         <div class = "code_block">
+        <pre>  <code>loop() {
+
+    robot->drivePID(speed);
+
+    delay(2);
+}     </code></pre>
+        </div>
+        <p>
+            Much cleaner and more compartmentalized, making it significantly easier to debug!
+        </p>
+
+        <h3>Our Robot: Big Dawg</h3>
         <div class = "video">
             <video height = "480" playsinline autoplay loop muted>
                 <source src="/media/IMG_1543.mp4" type="video/mp4"/>
             </video>
         </div>
+        <p>After many late hours in the lab, lots of blown ICs, and plenty of headaches, we managed to build a robot 
+            we were proud of. The name came quickly: Big Dawg, because who doesn't like a big dog. Although we didn't performan 
+            the best during the competition, it was a real joy to see all of our hard work integrated. I've attached a video clip 
+            below of our robot detecting and picking up a pet autonomously, recorded at 4AM the morning of competition. It's honestly
+            amazing to see our robot do it's thing, driving around and picking up pets. This course has taught me the most applicable skills 
+            so far in university, and I can't wait to bring these skills to future projects. To follow up with what I've learned here, I've 
+            decided to focus my next efforts on building a stronger foundation in computer vision. I've order a Jetson Orin Nano and I'm excited 
+            to test out more applications of Edge AI.
+        </p>
+        
+        <p>
+            Thank you for reading to the end! Feel free to contact me if you have any questions or comments at <a href="mailto:brambanik@gmail.com">brambanik@gmail.com</a>!
+        </p>
     </article>
 
     <script>

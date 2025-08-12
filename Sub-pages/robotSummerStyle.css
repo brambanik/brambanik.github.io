@@ -83,9 +83,29 @@ article h5 {
 .esp32_image img {
     width:100%;
 }
-.video {
+
+.code_block{
     display:block;
-    margin: 0 auto;
+    text-align:left;
+    margin:0;
+
+}
+
+.code_block pre {
+    display:block;
+    margin: 0;
+    padding:0;
+}
+.code_block code{
+    background-color:rgb(231, 231, 231);
+    display:block;
+    border: 0.2em solid rgb(185, 185, 185);
+    padding: 0.2em;
+}
+.video {
+    float:right;
+    display:block;
+    margin: 0 0 1em 1em;
     border: 0.4em solid pink;
     line-height:0;
     width:fit-content;
