@@ -39,6 +39,12 @@ article h4 {
     font-size:1em;
 }
 
+article h5 {
+    text-align:center;
+    font-weight:lighter;
+    margin: 0, 0;
+    font-size:0.8em;
+}
 .hbridge_schematic {
    text-align:center;
 }
@@ -56,7 +62,6 @@ article h4 {
 .pcb_images img {
     display:block;
     width:100%;
-    float:left;
 }
 
 .new_hbridge {
@@ -69,7 +74,15 @@ article h4 {
     height:auto;
 }
 
+.esp32_image{
+    display:block;
+    float:right;
+    width:30%;
 
+}
+.esp32_image img {
+    width:100%;
+}
 .video {
     display:block;
     margin: 0 auto;

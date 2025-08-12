@@ -38,7 +38,7 @@
             main branches of Engineering Physics: Software, Mechanical, and Electrical engineering. I was delegated to the majority of electrical and software work. As such, my first
             project was figuring out the circuit to drive the motors, which introduced my long debugging battle with one of the most infamous circuits: the H-Bridge.
         </p>    
-        <h3>H(ate)-Bridges: My Mortal Enemy</h3>
+        <h3>H-Bridges: Ever Useful, Notoriously Finicky</h3>
         <p>One of the most important aspects of an autonomous robot is the driving system. Without it, the robot can't really
             do anything of practical use. While it's possible that you could wire up a MOSFET with a PWM to the gate and change the speed
             of a motor, this only allows unidirectional rotation unless you physically flip the voltage leads. That's where the H-Bridge comes in:
@@ -81,6 +81,25 @@
             <img src = "/media/new_bridge.jpg" alt = "New Dual-PWM H-Bridge">
         </div>
         <h4>Fig. 4: Final H-Bridge Board</h4>
+        <h3>ESP32, Raspberry Pi, and freeRTOS</h3>
+        <div class = "esp32_image">
+          <img src = "/media/esp32.png" alt = "ESP32" class="esp32_image">
+          <h5>ESP32</h5>
+        </div>
+        <p>
+            One of the most important aspects of an autonomous robot is its control system. You can craft the most mechanically elegant robot, but it's practically 
+            paperweight if you don't implement a proper algorithm. We knew we would control our robot using the ESP32
+            Pico Kit 1 (as it was the one we were given). However, we soon ran into our first major design decision: how were we going to detect pets? 
+            The competition organizers had sewn small magnets into the heads of each pet with the explicit intent for detection, but this quickly proved infeasable. 
+            The magnetometers were only capable of detecting up to 2 inches away, meaning we would have to practically sweep the entire competition surface. While other 
+            teams switched to time-of-flight LIDAR systems or infrared detection, we ended up settling on a more advanced solution: computer vision.
+        </p>
+        <p>
+            This immediately had a lot of important implications. First and foremost, the ESP32 was not nearly powerful enough to run an entire computer vision model on top 
+            of other robot functions. We settled on mounting a Raspberry Pi 5 with an attached Pi camera to handle the detection. To communicate between the two boards,
+            we used the Serial TX and RX ports, specifically Serial Port 0. If you've worked with ESP32s before, you might recognize an obvious problem with this: uploading code 
+            utilizes this port. Our simple solution was to disconnect the Pi each time we uploaded code - annoying, yet effective.
+        </p>
         <div class = "video">
             <video height = "480" playsinline autoplay loop muted>
                 <source src="/media/IMG_1543.mp4" type="video/mp4"/>
