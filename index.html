@@ -15,14 +15,19 @@
 
 <body style = "margin:0"> 
     <div id="header"></div>
+    <article>
     <div class = "center_image">
-        <img src="/media/portrait_1.jpg" alt = "portrait1">
+        <div class = "image-wrapper">
+        <img src="/media/portrait_1.jpg" alt = "portrait1" class = "pushImage active" id="imgA">
+        <img src= "" alt = "portrait2" class = "pushImage offscreen-right" id="imgB">
+        </div>
     </div>
     <h1><code>Hello World!</code></h1>
     <p>
         My name is Bram Banik and I'm a third-year engineering physics student at the University of British Columbia. 
     </p>
-
+    </article>
+    <script src ="rotatingImages.js"></script>
     <script>
         fetch("header.html")
             .then(res => res.text())
