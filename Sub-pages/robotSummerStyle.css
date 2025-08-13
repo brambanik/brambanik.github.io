@@ -45,6 +45,12 @@ article h5 {
     margin: 0, 0;
     font-size:0.8em;
 }
+
+p code {
+    vertical-align: baseline;
+    font: size 1.05em;
+    line-height:1em;
+}
 .hbridge_schematic {
    text-align:center;
 }
@@ -88,21 +94,17 @@ article h5 {
     display:block;
     text-align:left;
     margin:0;
-
 }
 
 .code_block pre {
-    display:block;
-    margin: 0;
-    padding:0;
+    background-color:rgb(231,231,231);
+    border: 0.2em solid rgb(185,185,185);
     overflow-x:auto;
     max-width:100%;
     white-space:pre;
 }
 .code_block code{
-    background-color:rgb(231, 231, 231);
     display:block;
-    border: 0.2em solid rgb(185, 185, 185);
     padding: 0.2em;
 }
 .video {
@@ -111,7 +113,7 @@ article h5 {
     margin: 1em;
     line-height:0;
     max-width:40%;
-    min-width:200px;
+    min-width:50px;
 }
 
 .video video {
