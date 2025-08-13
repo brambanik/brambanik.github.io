@@ -95,6 +95,9 @@ article h5 {
     display:block;
     margin: 0;
     padding:0;
+    overflow-x:auto;
+    max-width:100%;
+    white-space:pre;
 }
 .code_block code{
     background-color:rgb(231, 231, 231);
@@ -105,7 +108,6 @@ article h5 {
 .video {
     float:right;
     display:block;
-    margin: 0 0 1em 1em;
     border: 0.4em solid pink;
     line-height:0;
     width:fit-content;
