@@ -107,13 +107,15 @@ article h5 {
 }
 .video {
     float:right;
-    display:block;
     border: 0.4em solid pink;
+    margin: 1em;
     line-height:0;
-    width:fit-content;
+    max-width:40%;
+    min-width:200px;
 }
 
 .video video {
+    width:100%;
+    height:auto;
     display:block;
-    margin:0;
 }
