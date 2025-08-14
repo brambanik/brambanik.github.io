@@ -80,6 +80,17 @@ p code {
     height:auto;
 }
 
+.cv_images {
+    text-align:center;
+    width:100%;
+}
+
+.cv_images img {
+    display:inline-block;
+    margin: 0.2em;
+    width:30%;
+}
+
 .esp32_image{
     display:block;
     float:right;
