@@ -8,6 +8,7 @@ article {
 article p {
     margin: 0  0;
     font-size:1.3em;
+    font-weight:lighter;
 }
 
 article h1 {
@@ -26,7 +27,7 @@ article h1 {
 @media (min-width:800px) {
     .center_image {
         float:left;
-        margin: 0em 2em 1em 0em;
+        margin: 0em 2em 0.5em 0em;
     }
 
     .article {
