@@ -1,7 +1,18 @@
 article {
     margin: 0 auto;
     padding: 0 1em;
+    max-width:800px;
     box-sizing: border-box;
+}
+
+article p {
+    margin: 0  0;
+    font-size:1.3em;
+}
+
+article h1 {
+    font-size:3em;
+    margin-bottom:0em;
 }
 
 .center_image {
@@ -15,7 +26,7 @@ article {
 @media (min-width:800px) {
     .center_image {
         float:left;
-        margin: 1em 2em;
+        margin: 0em 2em 1em 0em;
     }
 
     .article {
@@ -70,3 +81,9 @@ article {
     transform: translateX(100%);
     z-index:1;
 }
+
+/* For debugging
+body * {
+    border: 3px solid red;
+}
+*/
