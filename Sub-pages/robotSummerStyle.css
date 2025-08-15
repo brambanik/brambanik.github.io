@@ -2,6 +2,7 @@ article {
     margin: 0  auto;
     text-align:left;
     width: 100%;
+    padding: 0 1em;
     max-width:600px;
 }
 
