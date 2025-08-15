@@ -39,7 +39,7 @@ article h1 {
 @media (max-width: 800px) {
     .center_image {
         float:none;
-        margin: 1em auto 1em;
+        margin: 1em auto;
     }
     .article {
         max-width:600px;
