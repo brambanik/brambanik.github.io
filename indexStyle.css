@@ -16,6 +16,10 @@ article h1 {
     margin-bottom:0em;
 }
 
+hr {
+    margin:2em 0;
+}
+
 .center_image {
     width:20em;
     height:20em;
@@ -83,7 +87,36 @@ article h1 {
     z-index:1;
 }
 
-/* For debugging
+.row {
+    display:grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 20px;
+    max-width:800px;
+    margin: 0 auto;
+    text-align:center;
+    vertical-align:middle;
+}
+
+.column {
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap: 1.5em;
+    padding:10px;
+    box-sizing: border-box;
+} 
+
+.column img {
+    height:  3em;
+    width: auto;
+}
+.column a {
+    text-decoration:none;
+    color:black;
+    font-size:1.5em;
+}
+
+/*
 body * {
     border: 3px solid red;
 }
