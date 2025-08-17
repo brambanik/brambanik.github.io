@@ -44,6 +44,7 @@ hr {
     .center_image {
         float:none;
         margin: 1em auto;
+        padding: 0em;
     }
     .article {
         max-width:600px;

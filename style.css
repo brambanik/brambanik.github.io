@@ -85,6 +85,7 @@
     text-decoration:none;
 }
 
+
 .projectsDropdown{
     position:relative;
     background-color: antiquewhite;
@@ -137,3 +138,13 @@
     display: block;
 }
 
+
+@media (max-width: 600px) {
+    .navbar a {
+        font-size:0.8em;
+    }
+
+    .projectsDropdown .dropbtn {
+        font-size: 0.8em;
+    }
+}
