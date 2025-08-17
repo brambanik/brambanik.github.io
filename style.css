@@ -142,9 +142,11 @@
 @media (max-width: 600px) {
     .navbar a {
         font-size:0.8em;
+        padding: 10px 12px;
     }
 
     .projectsDropdown .dropbtn {
         font-size: 0.8em;
+        padding: 10px 12px;
     }
 }
