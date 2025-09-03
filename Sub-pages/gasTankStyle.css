@@ -1,0 +1,34 @@
+article {
+    margin: 0 auto;
+    text-align: left;
+    width:100%;
+    padding: 0 1em;
+    max-width:600px;
+
+}
+
+.main_image {
+    text-align:center;
+    padding-top:2em;
+}
+.main_image img {
+    display:block;
+    width:100%;
+    height: auto;
+    border-radius:1em;
+}
+
+article h1 {
+    font-size: 2em;
+    margin-top: 0.5em;
+    margin-bottom: 0em;
+}
+
+article h2 {
+    font-size:1em;
+    margin-top:0.2em;
+}
+
+article p {
+    font-weight:lighter;
+}
