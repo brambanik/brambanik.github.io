@@ -1,3 +1,7 @@
+article, article * {
+    box-sizing: border-box;
+}
+
 article {
     margin: 0  auto;
     text-align:left;
