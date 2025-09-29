@@ -100,6 +100,9 @@ hr {
     vertical-align:middle;
 }
 
+.row a {
+    text-decoration:none;
+}
 .column {
     display:flex;
     align-items:center;
@@ -113,7 +116,7 @@ hr {
     width: 30%;
     height:auto;
 }
-.column a {
+.column h4 {
     text-decoration:none;
     color:black;
     font-size:clamp(1em, 5vw, 1.5em);
