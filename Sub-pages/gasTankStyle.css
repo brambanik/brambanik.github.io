@@ -22,6 +22,21 @@ article {
     border-radius:1em;
 }
 
+.gastank_v1{
+    text-align:center;
+}
+
+.gastank_sim{
+    text-align:center;
+}
+
+.gastank_v2{
+    text-align:center;
+}
+
+.gastank_aero{
+    text-align:center;
+}
 article h1 {
     font-size: 2em;
     margin-top: 0.5em;
