@@ -11,6 +11,12 @@ article {
 
 }
 
+ul {
+    font-size:1.2em;
+    font-weight:lighter;
+    list-style-type: square;
+}
+
 .main_image {
     text-align:center;
     padding-top:2em;
@@ -26,6 +32,11 @@ article {
     text-align:center;
 }
 
+.gastank_v1 img {
+    display:inline-block;
+    width:47%;
+    
+}
 .gastank_sim{
     text-align:center;
 }
@@ -34,8 +45,35 @@ article {
     text-align:center;
 }
 
+.gastank_v2 img {
+    display: block;
+    width:100%;
+    height:auto;
+}
 .gastank_aero{
     text-align:center;
+}
+
+.gastank_mold{
+    text-align:center;
+}
+
+.gastank_mold img {
+    display:block;
+    width:100%;
+    height:auto;
+    border-radius:0.4em;
+}
+
+.wetlayup {
+    text-align: center;
+}
+
+.wetlayup img {
+    display:block;
+    width:100%;
+    height:auto;
+    border-radius:0.4em;
 }
 article h1 {
     font-size: 2em;
