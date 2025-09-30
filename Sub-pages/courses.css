@@ -1,6 +1,15 @@
+article, article * {
+    box-sizing: border-box;
+}
+article {
+    max-width:800px;
+    margin: 20px auto;
+}
 
 table {
     border-collapse: collapse;
+    max-width:800px;
+    margin: 0 auto;
 }
 
 th, td {
