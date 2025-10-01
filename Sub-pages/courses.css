@@ -3,6 +3,7 @@
     25% {background-color:blue}
     50% {background-color: yellow}
     75% {background-color: green;}
+    100% {background-color: red;}
 }
 
 .animate_bg {
@@ -17,6 +18,9 @@ button {
 
 p {
     text-align:center;
+    max-width:800px;
+    margin: 0 auto;
+    padding: 10px;
 }
 
 article, article * {
