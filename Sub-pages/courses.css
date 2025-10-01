@@ -1,9 +1,31 @@
+@keyframes animate{
+    0% {background-color: red}
+    25% {background-color:blue}
+    50% {background-color: yellow}
+    75% {background-color: green;}
+}
+
+.animate_bg {
+    animation: animate 4s infinite linear;
+}
+
+button {
+    display:block;
+    padding:10px 20px;
+    margin: 10px auto;
+}
+
+p {
+    text-align:center;
+}
+
 article, article * {
     box-sizing: border-box;
 }
 article {
     max-width:800px;
     margin: 20px auto;
+    font-size:1.3em;
 }
 
 table {
