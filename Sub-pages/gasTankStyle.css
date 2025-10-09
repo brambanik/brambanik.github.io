@@ -7,12 +7,12 @@ article {
     text-align: left;
     width:100%;
     padding: 0 1em;
-    max-width:600px;
+    max-width:1000px;
 
 }
 
 ul {
-    font-size:1.2em;
+    font-size:1.5em;
     font-weight:lighter;
     list-style-type: square;
 }
@@ -76,16 +76,21 @@ ul {
     border-radius:0.4em;
 }
 article h1 {
-    font-size: 2em;
+    font-size: 3em;
     margin-top: 0.5em;
     margin-bottom: 0em;
 }
 
 article h2 {
-    font-size:1em;
+    font-size:1.2em;
     margin-top:0.2em;
 }
 
+article h3 {
+    font-size: 2em;
+    text-decoration:overline;
+}
 article p {
     font-weight:lighter;
+    font-size:1.5em;
 }

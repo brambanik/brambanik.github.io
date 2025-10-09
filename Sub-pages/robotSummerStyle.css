@@ -7,7 +7,7 @@ article {
     text-align:left;
     width: 100%;
     padding: 0 1em;
-    max-width:600px;
+    max-width:1000px;
 }
 
 .main_image {
@@ -24,17 +24,22 @@ article {
 }
 
 article h1 {
-    font-size:2em;
+    font-size:3em;
     margin-top:0.5em;
     margin-bottom: 0em;
 }
 article h2 {
-    font-size:1em;
+    font-size:1.2em;
     margin-top:0.2em;
 }
 
+article h3 {
+    font-size: 2em;
+    text-decoration: overline;
+}
 article p {
     font-weight:lighter;
+    font-size:1.5em;
 }
 
 article h4 {
@@ -53,11 +58,11 @@ article h5 {
 
 p code {
     vertical-align: baseline;
-    font: size 1.05em;
+    font-size: 1.055em;
     line-height:1em;
 }
 .hbridge_schematic {
-   text-align:center;
+    text-align:center;
 }
 
 .hbridge_schematic img {
@@ -122,6 +127,7 @@ p code {
 .code_block code{
     display:block;
     padding: 0.2em;
+    font-size:1.5em;
 }
 .video {
     float:right;
