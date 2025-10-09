@@ -1,70 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <title> Bram Banik</title>
-    <link rel =  "stylesheet" type = "text/css" href = "courses.css">
-    <meta charset="UTF-8">
-    <meta name = "viewport"  content = "width = device-width, initial-scale=1">
+  <title> Bram Banik</title>
+  <link rel="stylesheet" type="text/css" href="courses.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width = device-width, initial-scale=1">
 
 </head>
 
 
-<body style = "margin:0"> 
-    <div id="header"></div>
-    <article>
-        Here is a curated list of the most important courses I've taken, with descriptions and how they've helped further my understanding of key engineering physics concepts.
-    </article>
-    <table>
-        <tr>
-            <th>Course Name</th>
-            <th>Description</th>
-            <th>Key Skills</th>
-        </tr>
-        <tr>
-            <td>ENPH353</td>
-            <td>This is ENPH353</td>
-            <td>PCB Design, C++, freeRTOS, Computer Vision</td>
-        </tr>
-        <tr>
-            <td>MATH255</td>
-            <td>DiffEq</td>
-            <td>DiffEq</td>
-        </tr>
-        <tr>
-            <td>MATH257</td>
-            <td>Partial DiffEq</td>
-            <td>Partial Diff Eq and applications in heat transfer, fluid dynamics, etc...</td>
-        </tr>
-        <tr>
-            <td>MECH280</td>
-            <td>Introduction to Fluid Mechanics</td>
-            <td>Solving basic fluid dynamics problems, Bernoulli Equations, Navier Stokes equations.</td>
-        </tr>
-        <tr>
-            <td>MATH217</td>
-            <td>Multivariable Calculus</td>
-            <td>Multivariable calculus</td>
-        </tr>
-        <tr>
-            <td>ENPH259</td>
-            <td>Introduction to Circuits</td>
-            <td>Circuit analysis, design, DACs, Op-Amps</td>
-        </tr>
-        <tr>
-            <td>ELEC342</td>
-            <td>Electromechanical Energy Conversion</td>
-            <td>Motors</td>
-        </tr>
-    </table>
-    <p>
-        <i>If you're bored of reading about courses, click the fun button to entertain yourself. <b>Epilepsy warning</b> - please be careful with the fun button.</i>
-    </p>
-        <button id = "fun-button">Start the Fun!</button>
-        <script src="courses.js"></script>
-    <script>
-        fetch("/header.html")
-            .then(res => res.text())
-            .then(data => document.getElementById("header").innerHTML = data);
-    </script>
+<body style="margin:0">
+  <div id="header"></div>
+  <article>
+    Here is a curated list of the most important courses I've taken, with descriptions and how they've helped further my
+    understanding of key engineering physics concepts.
+  </article>
+  <table>
+    <tr>
+      <th>Course Name</th>
+      <th>Description</th>
+      <th>Key Skills</th>
+    </tr>
+    <tr>
+      <td>ENPH353</td>
+      <td>This is ENPH353</td>
+      <td>PCB Design, C++, FreeRTOS, Computer Vision</td>
+    </tr>
+    <tr>
+      <td>MATH255</td>
+      <td>DiffEq</td>
+      <td>DiffEq</td>
+    </tr>
+    <tr>
+      <td>MATH257</td>
+      <td>Partial DiffEq</td>
+      <td>Partial Diff Eq and applications in heat transfer, fluid dynamics, etc...</td>
+    </tr>
+    <tr>
+      <td>MECH280</td>
+      <td>Introduction to Fluid Mechanics</td>
+      <td>Solving basic fluid dynamics problems, Bernoulli Equations, Navier Stokes equations.</td>
+    </tr>
+    <tr>
+      <td>MATH217</td>
+      <td>Multivariable Calculus</td>
+      <td>Multivariable calculus</td>
+    </tr>
+    <tr>
+      <td>ENPH259</td>
+      <td>Introduction to Circuits</td>
+      <td>Circuit analysis, design, DACs, Op-Amps</td>
+    </tr>
+    <tr>
+      <td>ELEC342</td>
+      <td>Electromechanical Energy Conversion</td>
+      <td>Motors</td>
+    </tr>
+  </table>
+  <p>
+    <i>If you're bored of reading about courses, click the fun button to entertain yourself. <b>Epilepsy warning</b> -
+      please be careful with the fun button.</i>
+  </p>
+  <button id="fun-button">Start the Fun!</button>
+  <script src="courses.js"></script>
+  <script>
+    fetch("/header.html")
+      .then(res => res.text())
+      .then(data => document.getElementById("header").innerHTML = data);
+  </script>
 </body>
-
