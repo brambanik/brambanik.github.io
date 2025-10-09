@@ -1,21 +1,24 @@
 article {
     margin: 0 auto;
     padding: 0 1em;
-    max-width:800px;
+    max-width:1000px;
     box-sizing: border-box;
 }
 
 article p {
     margin: 0  0;
-    font-size:1.3em;
+    font-size:1.6em;
     font-weight:lighter;
 }
 
 article h1 {
-    font-size:3em;
+    font-size:4em;
     margin-bottom:0em;
 }
 
+article h2 {
+    font-size:2em;
+}
 hr {
     margin:2em 0;
 }
