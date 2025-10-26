@@ -1,27 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <title> Bram Baniko</title>
-    <link rel =  "stylesheet" type = "text/css" href = "portfolio.css">
-    <meta charset="UTF-8">
-    <meta name = "viewport"  content = "width = device-width, initial-scale=1">
-    <style>
-        body {
-            font-family: Arial, Helvetica, sans-serif;
-        }
-    </style>
+  <title> Bram Baniko</title>
+  <link rel="stylesheet" type="text/css" href="portfolio.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width = device-width, initial-scale=1">
+  <style>
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+    }
+  </style>
 </head>
 
 
-<body style = "margin:0"> 
-    <div id="header"></div>
-    <article>
-        Outline of all my projects!
-    </article>
+<body style="margin:0">
+  <div id="header"></div>
+  <article>
+    Outline of all my projects!
+  </article>
+  <div class = "projects">
+  <div class="project-card">
+    <div class="project-title">
+      Fully Autonomous Rescue Robot
+    </div>
+    <div class = "project-description">
+      Built-from-scratch robot for rescuing pets, using computer vision!
+    </div>
+    <a href = "/Sub-pages/robotSummer.html"> <img src="/media/robot_header.png" alt="Autonomous Robot"></a>
+  </div>
 
-    <script>
-        fetch("/header.html")
-            .then(res => res.text())
-            .then(data => document.getElementById("header").innerHTML = data);
-    </script>
+  <div class="project-card">
+    <div class="project-title">
+      SIFT Homography Tracker
+    </div>
+    <div class = "project-description">
+      Used SIFT to create a homography detector in Python!
+    </div>
+
+    <img src="/media/sift.jpg" alt="Image Recognition">
+  </div>
+  <div class="project-card">
+    <div class="project-title">
+      Carbon Fiber Motorcycle Tank
+    </div>
+    <div class = "project-description">
+      Designed and manufactured a carbon fiber gas tank for the AHRMA motorcycle competition.
+    </div>
+    <a href = "/Sub-pages/gasTank.html"><img src="/media/fullbike.jpg" alt="Full ThunderBike"></a>
+  </div>
+  <div class="project-card">
+    <div class="project-title">
+      Linear Regression CNN
+    </div>
+    <div class = "project-description">
+      A basic ground-up CNN for linear regression problems.
+    </div>
+    <img src="/media/linreg.png" alt="Linear Regression">
+  </div>
+  </div>
+  <script>
+    fetch("/header.html")
+      .then(res => res.text())
+      .then(data => document.getElementById("header").innerHTML = data);
+  </script>
 </body>
