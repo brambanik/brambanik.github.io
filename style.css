@@ -95,14 +95,14 @@
 }
 
 .projectsDropdown .dropbtn {
-  font-size: 16px;
-  border: none;
-  outline: none;
-  color: black;
-  padding: 14px 16px;
-  background-color: inherit;
-  font-family: inherit; /* Important for vertical align on mobile phones */
-  margin: 0; /* Important for vertical align on mobile phones */
+    font-size: 16px;
+    border: none;
+    outline: none;
+    color: black;
+    padding: 14px 16px;
+    background-color: inherit;
+    font-family: inherit; /* Important for vertical align on mobile phones */
+    margin: 0; /* Important for vertical align on mobile phones */
 }
 
 .navbar a:hover, .projectsDropdown:hover .dropbtn {
@@ -115,16 +115,14 @@
     top: 100%;
     left: 0;
     background-color:antiquewhite;
-    min-width:200px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    max-width:90vw;
     z-index: 999;
-    min-width:100%;
-    max-width:max-content;
+
 }
 
 .dropdown-content a {
     display:block;
-    width:100%;
+    width:90%;
     float: left;
     color: black;
     padding: 8px 16px;
@@ -132,7 +130,6 @@
     white-space:nowrap; 
     text-align:left;
 }
-
 
 .projectsDropdown:hover .dropdown-content {
     display: block;
@@ -142,11 +139,11 @@
 @media (max-width: 600px) {
     .navbar a {
         font-size:0.8em;
-        padding: 10px 11px;
+        padding: 8px 10px;
     }
 
     .projectsDropdown .dropbtn {
         font-size: 0.8em;
-        padding: 10px 11px;
+        padding: 8px 10px;
     }
 }
