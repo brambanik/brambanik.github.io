@@ -44,9 +44,9 @@ th, td {
 }
 
 th {
-    background-color:lightslategray;
+    background-color:rgba(119, 136, 153, 0.7);
 }
 
 td {
-    background-color:lightgray;
+    background-color:rgba(211, 211, 211, 0.6);
 }
