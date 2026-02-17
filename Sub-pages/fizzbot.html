@@ -1,0 +1,113 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title> Bram Banik</title>
+    <link rel =  "stylesheet" type = "text/css" href = "fizzbotStyle.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name = "viewport"  content = "width = device-width, initial-scale=1">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
+    </style>
+</head>
+
+<body style = "margin:0"> 
+    <div id="header"></div>
+    <article>
+        <div class = "main_image">
+            <img src="/media/fizzbot.png" alt = "FizzBot GPT">
+        </div>
+        <h1>Fizzbot: Discord Imitation with Minimal Compute</h1>
+        <h2>Feburary 13th, 2026</h2>
+        <hr>
+        <p>
+            I recently took a course in machine learning, ENPH353. There were a lot of very cool takeaways culminating in an imitation learning model to drive a racecar along an 
+            obstacle-filled track. Inspired by this, I had the idea to prepare something for the upcoming Fizz Talks event which was a space for students to share their talents, 
+            interests, or creations (which I also happened to organize as the Co-Student Life Coordinator). Fizzbot was the result of this! It's a little GPT model that 
+            emulates messages from one of the engineering physics discord servers.
+        </p>
+        <h3>Scrubbing Data</h3>
+        <p>
+            The first step in this project was to gather enough data to train the model. Luckily, discord servers are often humming with activity, which means thousands upon thousands 
+            of lines of text to train on. To do this, I found this nifty firefox extension called <b>Discrub</b> that converts contents of servers into 
+            easy-to-manipulate JSON files. Unfortunately, the discord server I scrubbed only had ~36,000 lines of text. This sounds like a lot in any context but machine 
+            learning. Alas, I only had two days to make this work before presenting it so I made do. After some simple Python to convert the JSON into a legible format for training, 
+            I ended up with a masterfile that looked a bit like the following:
+        </p>    
+        <div class = "img">
+            <img src = "/media/nfrlog.png" alt = "NFR Text Log">
+            <h4>Fig. 1: Log Text Files</h4>
+            <h5>The text is blurry because a) it compressed poorly and b) to keep anonymity.</h5>
+        </div>
+        <h3>Training and Lessons on Tokenization</h3>
+        <p>
+            With all the data in a clean .txt file, I could get to actually training. Alas, I had no experience with GPTs so I turned to one of the legends of 
+            artificial intelligence: Andrej Karpathy. By minorly adapting his nano-GPT framework, I had a good starting point to make my own model. I put my text file as the
+            source and started training... and immediately realized two problems. First, I had one CPU to train on (yes, CPU not GPU). It was taking literally ages to train. 
+            Second, when I finally got an output, it was completely nonsense.
+        </p>
+        <div class = "img">
+            <img src = "/media/first_out.png" alt = "Initial GPT Output">
+            <h4>Fig. 2: First Outputs of Fizzbot</h4>
+            <h5>Good luck reading this.</h5>
+        </div>
+       <p>
+            Clearly, I had some work to do. The easiest things to fix were to scale back the size of the model for training purposes. After a lot of tinkering, I ended up
+            with a model that had 6 layers, ran for 1000 iterations, with a batch size of 6. This meant the model took around 2 hours to train which isn't the worst
+            when you're doing homework in the meantime. Yet, this still produced meaningless outputs. I found out quickly this was because of the tokenization I'd been using. 
+            One of the options is character-level tokenization, where each character is its own token. This works for low-entropy datasets; Discord messages are most definitely 
+            NOT low entropy. So I switched to subword-level tokenization instead, meaning each word was chopped up into a couple bits instead of characters,
+            
+            i.e. Raining -> "Rain" + "ing"
+       </p>
+
+       <p> This yielded significantly better results, to the point where it was almost coherent! I can't really ask for more from a tiny model like this. Check out the results below!</p>
+       <div class = "img">
+        <img src="/media/results_one.png" alt="FIZZBOT RESULTS!">
+        <h4>Fig. 3: Upgraded Fizzbot Results</h4>
+        <h5>Names are cut out for anonymity, but also wow it works!</h5>
+       </div>
+       <h3>Temperature Shenanigans</h3>
+        <p>
+            While screwing around with the Python for the training and running of the model, I noticed this parameter called temperature. After a quick search, I found out that it controls
+            the "randomness" of the GPT. Basically, the model has a list of most probable selections for each subsequent token, and the temperature decides to what degree it will pick
+            the highest probability option. Lower temperature results in a lower entropy model that always picks the "best" option, while higher temperature leads it to pick lower probability
+            predictions. While high temperature outputs were mostly nonsensical, the low temperature outputs gave some insight into what words (and people) the model would latch on to. It was interesting
+            to see people's behaviors encoded into the model, with their most frequent message types being grouped together, as seen below.   
+        </p>
+
+        <div class = "img">
+            <img src="/media/low_temp.png" alt="Low Temperature Output">
+            <h4>Fig. 4: Low-Temperature Fizzbot Output</h4>
+            <h5>People in this server sure seem to do a lot of thinking...</h5>
+        </div>
+        <h3>The Future of Fizzbot</h3>
+        <p>
+            The biggest improvements I could make to this projects would be increasing the context window of the bot (so it has a more cohesive flow of conversation) and majorly upgrading the size of the model
+            now that I have a dedicated GPU (and a Jetson Nano, which I plan on screwing around with soon!). 
+            While I mostly left this project in the dust, some people I knew decided to pick it up and improve it significantly. They even made a bot on our discord server and used a pre-trained GPT
+            to make the outputs very... intelligent? It's really cool to see Fizzbot evolve, but I won't put those updates here because they're not my work. Anyways, I'll leave a couple related outputs that 
+            I found interesting - turns out there's a lot of <i>unique</i> slang used in the server that the bot tuned itself to.
+        </p>
+
+        <div class = "img">
+            <img src="/media/fizzbot_examples.png" alt="Example outputs">
+            <h4>Fig. 5: More Interesting Fizzbot Outputs</h4>
+            <h5>Is fizzbot unc? Does fizzbot mog? </h5>
+        </div>
+        <p>
+            Thank you for reading to the end! Feel free to contact me if you have any questions or comments at <a href="mailto:brambanik@gmail.com">brambanik@gmail.com</a>!
+        </p>
+    </article>
+
+    <script>
+        fetch("/header.html")
+            .then(res => res.text())
+            .then(data => document.getElementById("header").innerHTML = data);
+    </script>
+</body>

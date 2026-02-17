@@ -1,0 +1,151 @@
+article, article * {
+    box-sizing: border-box;
+}
+
+article {
+    margin: 0  auto;
+    text-align:left;
+    width: 100%;
+    padding: 0 1em;
+    max-width:1000px;
+}
+
+.main_image {
+    text-align:center;
+    padding-top:2em;
+}
+
+.main_image img{
+    display:block;
+    width:100%;
+    height:auto;
+    background-color: #fff0fe;
+    border-radius:1em;
+}
+
+article h1 {
+    font-size:3em;
+    margin-top:0.5em;
+    margin-bottom: 0em;
+}
+article h2 {
+    font-size:1.2em;
+    margin-top:0.2em;
+}
+
+article h3 {
+    font-size: 2em;
+    text-decoration: overline;
+}
+article p {
+    font-weight:lighter;
+    font-size:1.5em;
+}
+
+article h4 {
+    text-align:center;
+    margin: 0.4em auto;
+    font-weight:lighter;
+    font-size:1em;
+}
+
+article h5 {
+    text-align:center;
+    font-weight:lighter;
+    margin: 0, 0;
+    font-size:0.8em;
+}
+
+p code {
+    vertical-align: baseline;
+    font-size: 1.055em;
+    line-height:1em;
+}
+.img {
+    text-align:center;
+}
+
+.img img {
+    display:block;
+    width: 100%;
+    height:auto;
+}
+
+.img h5 {
+    padding-top:0;
+    margin-top:0;
+
+}
+
+.pcb_images {
+    text-align:center;
+}
+
+.pcb_images img {
+    display:block;
+    width:100%;
+}
+
+.new_hbridge {
+    text-align:center;
+}
+
+.new_hbridge img {
+    display:block;
+    width:100%;
+    height:auto;
+}
+
+.cv_images {
+    text-align:center;
+    width:100%;
+}
+
+.cv_images img {
+    display:inline-block;
+    margin: 0.2em;
+    width:30%;
+}
+
+.esp32_image{
+    display:block;
+    float:right;
+    width:30%;
+
+}
+.esp32_image img {
+    width:100%;
+}
+
+.code_block{
+    display:block;
+    text-align:left;
+    margin:0;
+}
+
+.code_block pre {
+    background-color:rgb(231,231,231);
+    border: 0.2em solid rgb(185,185,185);
+    overflow-x:auto;
+    max-width:100%;
+    white-space:pre;
+}
+.code_block code{
+    display:block;
+    padding: 0.2em;
+    font-size:1.5em;
+}
+.video {
+    float:right;
+    border: 0.4em solid pink;
+    margin: 1em;
+    line-height:0;
+    max-width:40%;
+    min-width:50px;
+}
+
+.video video {
+    width:100%;
+    height:auto;
+    display:block;
+}
