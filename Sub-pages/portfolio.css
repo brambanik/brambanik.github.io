@@ -10,6 +10,7 @@ p {
     flex-wrap: wrap;
     gap: 1rem;
     justify-content:flex-start;
+    width:80%;
     max-width: 1000px;
     margin: 0 auto;
     padding: 0px 0px;
@@ -20,15 +21,18 @@ p {
     flex: 0 0 calc(50% - 1rem);
     height:350px;
     box-sizing: border-box;
-    border-radius:12px;
+    background-color: antiquewhite;
+    border-radius:0px;
     border: 2px solid black;
     box-shadow: 10px 10px 3px lightskyblue;
     overflow: hidden;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
     
 }
 
 .project-card:hover{
-    box-shadow: 10px 10px 3px lightslategray;
+    box-shadow: 10px 10px 3px gray;
+    transform: translateY(-3px);
 }
 
 .project-title{
@@ -36,6 +40,7 @@ p {
     font-size:1.5em;
     font-weight:bold;
     padding: 10px;
+    padding-bottom: 4px;
     height:10%;
 }
 
@@ -52,6 +57,20 @@ p {
     aspect-ratio:16/9;
     object-fit:cover;
     padding-top:4px;
+}
+
+.tags {
+    margin-bottom:6px;
+    margin-left: 10px;
+    display:flex;
+    flex-wrap:wrap;
+    gap: 8px;
+}
+
+.tag {
+    padding: 4px 10px;
+    border-radius:1000px;
+    background-color:gainsboro;
 }
 
 @media (max-width:1000px) {

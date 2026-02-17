@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang = en>
+
+<head>
+  <title>Bram Banik</title>
+  <link rel="stylesheet" type="text/css" href="personalProjects.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width = device-width, initial-scale=1">
+</head>
+
+<div id = "header"></div>
+<body style = "margin: 0">
+
+    <p>Here is an ever-growing list of personal projects I've done! It looks small right now, but keep checking back and I'll add more!</p>
+
+    
+    <div class = "list_box">
+        <ul>
+            <li>
+            <a href = "/Sub-pages/fizzbot.html">
+                <div class = "list_item">
+                    <h4>Fizzbot GPT</h4>
+                    <div class = "tags">
+                        <span class = "tag">Software</span>
+                        <span class = "tag">ML</span>
+                        <span class = "tag">GPT</span>
+                    </div>
+                    <p>A nano-GPT inspired application of GPTs to emulate discord conversations.</p>
+                </div>
+            </a>
+            </li>
+
+            <!-- Add more projects here when you got em brosky-->
+        </ul>
+        
+    </div>
+
+    <p>And many more to come...</p>
+</body>
+
+<script>
+    fetch("/header.html")
+      .then(res => res.text())
+      .then(data => document.getElementById("header").innerHTML = data);
+  </script>
+
+</html>
