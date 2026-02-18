@@ -15,6 +15,11 @@ body > p {
     text-align:center;
 
 }
+
+body > h3 {
+    text-align:center;
+    
+}
 .list_box {
     display:flex;
     border-radius: 5px;
