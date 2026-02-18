@@ -83,6 +83,7 @@
     text-align: center;
     padding: 14px 16px;
     text-decoration:none;
+    transition: background-color 0.5s ease;
 }
 
 
@@ -91,6 +92,7 @@
     background-color: antiquewhite;
     float: left;
     overflow:visible;
+    transition: background-color 0.5s ease;
     
 }
 
