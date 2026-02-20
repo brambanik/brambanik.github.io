@@ -40,20 +40,20 @@ p {
     font-size:1.5em;
     font-weight:bold;
     padding: 10px;
-    padding-bottom: 4px;
-    height:10%;
+    margin-bottom: 4px;
+    height:auto;
 }
 
 .project-description{
     display:block;
     font-size:1em;
     padding: 0px 10px 10px 10px;
-    height:10%;
+    height:auto;
 }
 .project-card img {
     display:block;
     width:100%;
-    height: 100%;
+    height: auto;
     aspect-ratio:16/9;
     object-fit:cover;
     padding-top:4px;
@@ -71,6 +71,7 @@ p {
     padding: 4px 10px;
     border-radius:1000px;
     background-color:gainsboro;
+    font-size:clamp(0.2em, 5vw, 1em);
 }
 
 @media (max-width:1000px) {
@@ -78,6 +79,7 @@ p {
         flex: 1 1 100%;
         max-width: 100%;
     }
+
 }
 /* * {
     border: 2px solid red;
